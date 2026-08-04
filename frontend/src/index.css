@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  background-image: radial-gradient(circle at 1px 1px, rgba(16,35,61,0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+::selection {
+  @apply bg-gold-light text-ink;
+}
+
+/* ---- Signature "boarding pass" job card ---- */
+.pass-card {
+  @apply relative bg-card rounded-2xl border border-line shadow-sm overflow-hidden transition-all duration-200;
+}
+.pass-card:hover {
+  @apply shadow-lg -translate-y-0.5;
+  border-color: theme('colors.gold');
+}
+.pass-perforation {
+  @apply relative border-t-2 border-dashed border-line;
+}
+.pass-perforation::before,
+.pass-perforation::after {
+  content: '';
+  @apply absolute w-4 h-4 bg-paper rounded-full -top-2;
+}
+.pass-perforation::before {
+  left: -8px;
+}
+.pass-perforation::after {
+  right: -8px;
+}
+
+/* ---- Ink-stamp status badge ---- */
+.stamp {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-md border-2 font-mono text-xs font-semibold uppercase tracking-wider;
+  transform: rotate(-1.5deg);
+}
+.stamp-applied { @apply border-slate text-slate bg-white; }
+.stamp-shortlisted { @apply border-gold text-gold bg-gold-light/30; }
+.stamp-interview { @apply border-ink-light text-ink-light bg-white; }
+.stamp-selected { @apply border-teal text-teal bg-teal-light; }
+.stamp-rejected { @apply border-coral text-coral bg-coral-light; }
+
+/* ---- Ledger table ---- */
+.ledger-table th {
+  @apply text-left text-xs uppercase tracking-wider text-slate font-semibold py-3 px-4 border-b border-line;
+}
+.ledger-table td {
+  @apply py-3 px-4 border-b border-line/60 font-mono text-sm;
+}
+.ledger-table tr:hover td {
+  @apply bg-teal-light/30;
+}
+
+/* ---- Shared form input ---- */
+.input {
+  @apply w-full px-3.5 py-2.5 border border-line rounded-lg bg-white text-sm text-ink placeholder:text-slate/60 transition-colors;
+}
+.input:focus {
+  @apply outline-none ring-2 ring-gold/40 border-gold;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-line rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-slate; }
