@@ -7,10 +7,7 @@ import {
 } from 'lucide-react'
 import PublicNavbar from '../components/layout/PublicNavbar'
 
-/* ─────────────────────────────────────────────────────────────
-   👉 CHANGE THIS to your actual repo URL before deploying.
-   ───────────────────────────────────────────────────────────── */
-const REPO_URL = 'https://github.com/your-username/centralized-placement-portal'
+const REPO_URL = 'https://github.com/Oliveya-15/Centralized-placement-portal'
 
 const NOTICE_KEY = 'cpp-frontend-only-notice-dismissed'
 
